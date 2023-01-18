@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate} from "react-router-dom";
 import Button from "../components/ui/Button";
+import EmotionTagList from "../components/list/EmotionTagList";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -9,19 +10,24 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 `;
 
-const Container = styled.div`
-    width: 100%;
-    max-width: 720px;
-
-    & > * {
-        :not(:last-child) {
-            margin-bottom: 16px;
-        }
-    }
+const Header = styled.h2`
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom:5px;
 `;
+
+const TodayEmotion = styled.div`
+    width: 140px;
+    height: 140px;
+    border: 1px solid black;
+    margin: 18px auto;
+`
 
 function PostDrawPage(props) {
     
@@ -29,14 +35,12 @@ function PostDrawPage(props) {
     
     return (
         <Wrapper>
-            <Container>
-                <Button
-                    title="여기는 그림그리기"
-                    onClick={() => {
-                        navigate("/");
-                    }}
-                />
-            </Container>
+            <Header>오늘의 감정은 어떤가요?</Header>
+            <TodayEmotion/>
+            <EmotionTagList/>
+            <EmotionTagList/>
+            <EmotionTagList/>
+            <EmotionTagList/>
         </Wrapper>
     );
 }
